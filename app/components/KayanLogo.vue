@@ -6,6 +6,8 @@
   >
     <svg
       viewBox="0 0 210 155"
+      width="128"
+      height="90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       class="w-full h-full overflow-visible"
