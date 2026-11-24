@@ -25,21 +25,6 @@
       </svg>
     </button>
 
-    <!-- Instagram Floating Button -->
-    <a
-      href="https://www.instagram.com/kayan.no.1/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white shadow-xl hover:scale-110 flex items-center justify-center transition-all"
-      title="Instagram"
-    >
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>
-    </a>
-
     <!-- WhatsApp Floating Button -->
     <a
       href="https://wa.me/201000000000"
