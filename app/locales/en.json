@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "calculator": "Cost Calculator",
+    "blog": "Blog",
+    "locations": "Locations",
+    "about": "About Us",
+    "contact": "Contact",
+    "bookVisit": "Book Inspection"
+  },
+  "hero": {
+    "badge": "Kayan Construction & Finishes • 10-Year Warranty",
+    "title": "Transforming Your Space Into",
+    "titleHighlight": "An Architectural Masterpiece",
+    "subtitle": "Turnkey apartment, villa, and commercial finishing with full engineering supervision, on-time delivery, and transparent pricing.",
+    "ctaPrimary": "Calculate Your Cost",
+    "ctaSecondary": "Explore Projects",
+    "stats": {
+      "projects": "Delivered Projects",
+      "warranty": "Years Warranty",
+      "commitment": "On-Time Delivery"
+    }
+  },
+  "sections": {
+    "servicesTitle": "Our Engineering Services",
+    "servicesSubtitle": "Comprehensive finishing and interior design solutions from 3D visualization to turnkey handover.",
+    "viewAllServices": "All Services",
+    "projectsTitle": "Featured Projects",
+    "projectsSubtitle": "Experience the real transformation from raw concrete and 3D concepts to finished luxury spaces.",
+    "viewAllProjects": "View All Projects",
+    "packagesTitle": "Finishing Packages & Pricing",
+    "packagesSubtitle": "Choose the finishing tier that fits your budget or calculate your exact estimate in seconds.",
+    "openCalculator": "Open Interactive Calculator",
+    "ctaTitle": "Ready to Start Finishing Your Unit?",
+    "ctaSubtitle": "Book a free on-site engineering inspection today and receive a detailed BOQ and timeline.",
+    "ctaButton": "Book Free Inspection"
+  },
+  "common": {
+    "before": "Before",
+    "after": "After",
+    "dragCompare": "Drag to compare",
+    "area": "Area",
+    "sqm": "m²",
+    "duration": "Duration",
+    "days": "Days",
+    "egp": "EGP",
+    "perSqm": "EGP / m²",
+    "readMore": "Read More",
+    "viewDetails": "View Details",
+    "share": "Share",
+    "copied": "Link Copied!",
+    "installApp": "Install App",
+    "whatsapp": "WhatsApp",
+    "callUs": "Call Us",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "footer": {
+    "about": "Kayan Construction & Finishes is an engineering firm specialized in turnkey interior design and luxury finishing for residential and commercial spaces in Egypt.",
+    "quickLinks": "Quick Links",
+    "areasTitle": "Service Areas",
+    "contactTitle": "Contact Info",
+    "address": "Fifth Settlement, New Cairo — South 90th Street",
+    "rights": "All Rights Reserved © Kayan Construction & Finishes"
+  }
+}
