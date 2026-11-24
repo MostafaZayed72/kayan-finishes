@@ -19,6 +19,7 @@ export interface FinishingPackage {
   id: string
   name: BilingualText
   badge?: BilingualText
+  percentage: number
   pricePerSqm: number
   popular?: boolean
   desc: BilingualText
@@ -200,79 +201,82 @@ export const servicesData: ServiceItem[] = [
 
 export const packagesData: FinishingPackage[] = [
   {
-    id: 'economic',
-    name: { ar: 'الباقة الاقتصادية', en: 'Essential Package' },
-    pricePerSqm: 5500,
+    id: 'periodic',
+    name: { ar: 'الإشراف الهندسي الدوري', en: 'Periodic Engineering Supervision' },
+    percentage: 10,
+    pricePerSqm: 6000,
     desc: {
-      ar: 'تشطيب عملي متين بخامات مصرية درجة أولى مناسب للشقق الاستثمارية والسكنية.',
-      en: 'Durable, practical finishing with first-grade local materials ideal for residential & rental units.'
+      ar: 'مثالي لمن لديه مقاولون ويرغب في مراجعة الجودة والاستلام الهندسي لكل مرحلة.',
+      en: 'Ideal if you have your own contractors and need scheduled quality inspections and BOQ audits.'
     },
     specs: {
       ar: [
-        'تأسيس سباكة BR أو الشريف بضمان معتمد',
-        'أسلاك كهرباء السويدي الأصلية ومفاتيح فينوس',
-        'سيراميك فرز أول كليوباترا أو الجوهرة',
-        'دهانات جوتن أو سايبس قابلة للغسيل',
-        'إشراف هندسي كامل وضمان 5 سنوات'
+        'زيارتان هندسيتان أسبوعياً لمتابعة التنفيذ بالموقع',
+        'مراجعة فواتير الخامات ومقايسات الصنايعية',
+        'استلام كل بند هندسياً قبل سداد أي دفعة',
+        'توصية بأفضل الموردين بأسعار الجملة',
+        'تقارير ملاحظات مصورة بعد كل زيارة'
       ],
       en: [
-        'Certified BR or El-Sherif plumbing infrastructure',
-        'Genuine El-Sewedy wiring & Venus switches',
-        'First-grade Cleopatra or Gemma ceramic flooring',
-        'Washable Jotun or Sipes interior paints',
-        'Full engineering supervision & 5-year warranty'
+        '2 scheduled on-site engineering inspections weekly',
+        'Audit of material invoices and contractor quotations',
+        'Technical sign-off before releasing any payment',
+        'Access to wholesale supplier recommendations',
+        'Illustrated inspection report after every visit'
       ]
     }
   },
   {
-    id: 'luxury',
-    name: { ar: 'الباقة الفاخرة', en: 'Signature Luxury' },
+    id: 'full-supervision',
+    name: { ar: 'الإشراف والتنفيذ الكامل + 3D', en: 'Full Supervision & 3D Execution' },
     badge: { ar: 'الأكثر طلباً', en: 'Most Popular' },
     popular: true,
+    percentage: 15,
     pricePerSqm: 8500,
     desc: {
-      ar: 'التوازن المثالي بين الفخامة والسعر مع تصميم 3D كامل وبورسلين فاخر.',
-      en: 'The ideal balance of luxury and value with full 3D design and premium porcelain.'
+      ar: 'ندير مشروعك بالكامل بالتكلفة الفعلية للخامات والمصنعيات مع فواتير معتمدة وخصومات المصانع.',
+      en: 'We manage your entire project at actual material & labor cost with verified invoices and factory discounts.'
     },
     specs: {
       ar: [
-        'تصميم 3D كامل لكل الغرف مجاناً مع الباقة',
-        'بورسلين هندي/إسباني مقاسات كبيرة + HDF ألماني',
-        'تأسيس تكييفات سبلت + إضاءة بروفايل ليد',
-        'أطقم حمامات إيديال ستاندرد أو ديورافيت + خلاطات جروهي',
-        'ضمان هندسي شامل لمدة 10 سنوات'
+        'تصميم ثلاثي الأبعاد 3D ولوحات تنفيذية كاملة',
+        'إدارة يومية كاملة للصنايعية والمقاولين بالموقع',
+        'شراء الخامات بخصومات الشركات وتقديم فواتير أصلية',
+        'تقارير مالية ومصورة أسبوعية بشفافية 100%',
+        'ضمان هندسي شامل لمدة 10 سنوات على التأسيس'
       ],
       en: [
-        'Complimentary full 3D interior design included',
-        'Large-format porcelain + German HDF flooring',
-        'Split AC rough-ins + architectural LED profiles',
-        'Ideal Standard / Duravit sanitaryware & Grohe mixers',
-        'Comprehensive 10-year engineering warranty'
+        'Full 3D interior design and executive shop drawings',
+        'Daily site management of all trades and contractors',
+        'Factory-direct material procurement with original receipts',
+        'Weekly transparent financial & photo progress reports',
+        'Comprehensive 10-year warranty on MEP & structural work'
       ]
     }
   },
   {
-    id: 'royal',
-    name: { ar: 'الباقة الملكية', en: 'Royal Smart Turnkey' },
-    pricePerSqm: 12500,
+    id: 'vip-turnkey',
+    name: { ar: 'إدارة المشاريع الفاخرة VIP', en: 'VIP Luxury Project Management' },
+    percentage: 18,
+    pricePerSqm: 12000,
     desc: {
-      ar: 'أعلى درجات الرفاهية: منزل ذكي بالكامل، رخام مستورد، وتكييف كونسيلد.',
-      en: 'Ultimate bespoke luxury: full smart home automation, imported marble, and concealed HVAC.'
+      ar: 'مخصص للفلل والوحدات الذكية التي تتطلب مدير مشروع متفرغ وتوريدات مخصصة.',
+      en: 'Tailored for villas and smart homes requiring a dedicated project manager and bespoke sourcing.'
     },
     specs: {
       ar: [
-        'نظام سمارت هوم متكامل للإضاءة والتكييف والستائر',
-        'أرضيات رخام طبيعي مستورد وباركيه مسمار',
-        'تأسيس تكييف كونسيلد ومخارج هواء خطية',
-        'تجاليد خشبية وبديل رخام وتصميم أثاث مخصص',
-        'مدير مشروع مخصص وضمان 10 سنوات'
+        'مدير مشروع مهندس متفرغ لموقعك حتى التسليم',
+        'إشراف على أنظمة المنزل الذكي والتكييف المركزي',
+        'تصميم وتنفيذ الأثاث والتجاليد الخشبية المخصصة',
+        'تنسيق كامل لتصاريح الكمبوند والمرافق',
+        'تسليم على المفتاح مع خدمة صيانة مجانية لأول عام'
       ],
       en: [
-        'Full smart home automation (lighting, HVAC, curtains)',
-        'Imported natural marble & solid wood parquet',
-        'Concealed ducted HVAC with linear slot diffusers',
-        'Custom wood paneling and bespoke joinery',
-        'Dedicated project manager & 10-year warranty'
+        'Dedicated full-time site project manager until handover',
+        'Supervision of smart home automation & concealed HVAC',
+        'Custom furniture, marble, and bespoke joinery sourcing',
+        'Complete compound permit & utility coordination',
+        'Turnkey handover with 1-year complimentary maintenance'
       ]
     }
   }

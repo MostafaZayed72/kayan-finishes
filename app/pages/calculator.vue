@@ -53,9 +53,9 @@
             </div>
           </div>
 
-          <!-- Package Selection -->
+          <!-- Supervision Model Selection -->
           <div>
-            <label class="block text-sm font-bold mb-3">{{ locale === 'ar' ? '3. مستوى الباقة' : '3. Finishing Package' }}</label>
+            <label class="block text-sm font-bold mb-3">{{ locale === 'ar' ? '3. نظام الإشراف الهندسي المختار' : '3. Engineering Supervision Model' }}</label>
             <div class="space-y-3">
               <button
                 v-for="pkg in packagesData"
@@ -70,8 +70,8 @@
                   <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{{ pkg.desc[locale] }}</div>
                 </div>
                 <div class="text-end shrink-0">
-                  <div class="font-black text-brand-orange">{{ pkg.pricePerSqm.toLocaleString() }}</div>
-                  <div class="text-[11px] text-slate-400">{{ $t('common.perSqm') }}</div>
+                  <div class="text-xl font-black text-brand-orange">{{ pkg.percentage }}%</div>
+                  <div class="text-[11px] text-slate-400">{{ locale === 'ar' ? 'نسبة الإشراف' : 'Supervision' }}</div>
                 </div>
               </button>
             </div>
@@ -95,7 +95,7 @@
         <div class="lg:col-span-5 premium-card !bg-brand-charcoal text-white space-y-6 sticky top-24" data-aos="fade-up" data-aos-delay="100">
           <div>
             <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">
-              {{ locale === 'ar' ? 'التكلفة التقديرية' : 'Estimated Total Cost' }}
+              {{ locale === 'ar' ? 'التقدير الشامل (التنفيذ + الإشراف)' : 'Estimated Total (Execution + Supervision)' }}
             </span>
             <div class="text-4xl font-black text-white mt-2">
               {{ totalCost.toLocaleString() }}
@@ -103,14 +103,18 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-4 py-4 border-y border-white/10 text-sm">
-            <div>
-              <div class="text-slate-400 text-xs">{{ $t('common.duration') }}</div>
-              <div class="font-extrabold mt-1">{{ estimatedDays }} {{ $t('common.days') }}</div>
+          <div class="space-y-3 py-4 border-y border-white/10 text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">{{ locale === 'ar' ? 'تقدير الخامات والمصنعيات' : 'Est. Materials & Labor' }}</span>
+              <span class="font-bold">{{ executionCost.toLocaleString() }} {{ $t('common.egp') }}</span>
             </div>
-            <div>
-              <div class="text-slate-400 text-xs">{{ locale === 'ar' ? 'الباقة المختارة' : 'Selected Tier' }}</div>
-              <div class="font-extrabold mt-1 text-brand-orange">{{ currentPkg.name[locale] }}</div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">{{ locale === 'ar' ? `نسبة الإشراف الهندسي (${currentPkg.percentage}%)` : `Supervision Fee (${currentPkg.percentage}%)` }}</span>
+              <span class="font-bold text-brand-orange">{{ supervisionFee.toLocaleString() }} {{ $t('common.egp') }}</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10">
+              <span class="text-slate-400">{{ $t('common.duration') }}</span>
+              <span class="font-extrabold">{{ estimatedDays }} {{ $t('common.days') }}</span>
             </div>
           </div>
 
@@ -136,7 +140,7 @@ const { openBooking } = useBookingModal()
 
 const unitType = ref<'apartment' | 'villa' | 'commercial'>('apartment')
 const area = ref(180)
-const selectedPkgId = ref((route.query.pkg as string) || 'luxury')
+const selectedPkgId = ref((route.query.pkg as string) || 'full-supervision')
 const selectedLocation = ref(locationsData[0].name[locale.value])
 
 const unitTypes = [
@@ -147,10 +151,16 @@ const unitTypes = [
 
 const currentPkg = computed(() => packagesData.find((p) => p.id === selectedPkgId.value) || packagesData[1])
 
-const totalCost = computed(() => {
+const executionCost = computed(() => {
   const mult = unitTypes.find((u) => u.id === unitType.value)?.multiplier ?? 1
   return Math.round(area.value * currentPkg.value.pricePerSqm * mult)
 })
+
+const supervisionFee = computed(() => {
+  return Math.round(executionCost.value * (currentPkg.value.percentage / 100))
+})
+
+const totalCost = computed(() => executionCost.value + supervisionFee.value)
 
 const estimatedDays = computed(() => {
   const base = unitType.value === 'villa' ? 95 : 55

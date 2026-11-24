@@ -150,9 +150,11 @@
                 {{ pkg.badge[locale] }}
               </span>
               <h3 class="text-xl font-black text-slate-900 dark:text-white mb-2">{{ pkg.name[locale] }}</h3>
-              <div class="flex items-baseline gap-1.5 mb-3">
-                <span class="text-3xl font-black text-brand-orange">{{ pkg.pricePerSqm.toLocaleString() }}</span>
-                <span class="text-xs font-bold text-slate-500 dark:text-slate-400">{{ $t('common.perSqm') }}</span>
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-4xl font-black text-brand-orange">{{ pkg.percentage }}%</span>
+                <span class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                  {{ locale === 'ar' ? 'نسبة الإشراف من التكلفة الفعلية' : 'Supervision Fee of Actual Cost' }}
+                </span>
               </div>
               <p class="text-sm text-slate-600 dark:text-slate-400 mb-5">{{ pkg.desc[locale] }}</p>
 
