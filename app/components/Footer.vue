@@ -46,19 +46,19 @@
               </svg>
               <span>{{ $t('footer.address') }}</span>
             </li>
-            <li class="flex items-center gap-2.5" dir="ltr">
+            <li class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <a href="tel:+201000000000" class="hover:text-white transition-colors">+20 100 000 0000</a>
+              <a href="tel:+201000000000" dir="ltr" class="hover:text-white transition-colors">+20 100 000 0000</a>
             </li>
-            <li class="flex items-center gap-2.5" dir="ltr">
+            <li class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <a href="mailto:info@kayan-finishes.com" class="hover:text-white transition-colors">info@kayan-finishes.com</a>
+              <a href="mailto:info@kayan-finishes.com" dir="ltr" class="hover:text-white transition-colors">info@kayan-finishes.com</a>
             </li>
-            <li class="flex items-center gap-2.5" dir="ltr">
+            <li class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-brand-orange shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -68,6 +68,7 @@
                 href="https://www.instagram.com/kayan.no.1/"
                 target="_blank"
                 rel="noopener noreferrer"
+                dir="ltr"
                 class="hover:text-white transition-colors"
               >
                 @kayan.no.1
