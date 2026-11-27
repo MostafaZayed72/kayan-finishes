@@ -97,15 +97,9 @@ create table if not exists kayan_leads (
   created_at timestamptz not null default now()
 );
 
--- Disable RLS for quick prototype / or enable with policies as needed
-alter table kayan_services enable row level security;
-alter table kayan_projects enable row level security;
-alter table kayan_supervision_tiers enable row level security;
-alter table kayan_blog_posts enable row level security;
-alter table kayan_leads enable row level security;
-
-create policy "Public read services" on kayan_services for select using (true);
-create policy "Public read projects" on kayan_projects for select using (true);
-create policy "Public read tiers" on kayan_supervision_tiers for select using (true);
-create policy "Public read blog" on kayan_blog_posts for select using (true);
-create policy "Public insert leads" on kayan_leads for insert with check (true);
+-- Allow full server-side access (admin writes are protected by Nuxt server auth)
+alter table kayan_services disable row level security;
+alter table kayan_projects disable row level security;
+alter table kayan_supervision_tiers disable row level security;
+alter table kayan_blog_posts disable row level security;
+alter table kayan_leads disable row level security;

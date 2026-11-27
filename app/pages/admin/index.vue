@@ -508,6 +508,9 @@ const saveEntity = async (entity: string, payload: any) => {
     await refresh()
     editorType.value = null
     toast.value = locale.value === 'ar' ? 'تم الحفظ بنجاح!' : 'Saved successfully!'
+  } catch (err: any) {
+    toast.value = err?.data?.statusMessage || err?.message || 'Save failed'
+    editorType.value = null
   } finally {
     saving.value = false
   }
