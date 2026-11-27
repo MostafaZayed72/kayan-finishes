@@ -103,3 +103,5 @@ alter table kayan_projects disable row level security;
 alter table kayan_supervision_tiers disable row level security;
 alter table kayan_blog_posts disable row level security;
 alter table kayan_leads disable row level security;
+
+grant all on table kayan_services, kayan_projects, kayan_supervision_tiers, kayan_blog_posts, kayan_leads to anon, authenticated, service_role;
