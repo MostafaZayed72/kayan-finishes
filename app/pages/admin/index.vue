@@ -15,10 +15,10 @@
 
         <form @submit.prevent="login" class="space-y-4">
           <div>
-            <label class="block text-xs font-bold mb-1.5">{{ locale === 'ar' ? 'البريد الإلكتروني' : 'Email' }}</label>
+            <label class="block text-xs font-bold mb-1.5">{{ locale === 'ar' ? 'اسم المستخدم' : 'Username' }}</label>
             <input
               v-model="loginForm.email"
-              type="email"
+              type="text"
               required
               dir="ltr"
               class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 focus:border-brand-orange focus:outline-none text-sm"

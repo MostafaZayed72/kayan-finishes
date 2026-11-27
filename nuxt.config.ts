@@ -54,8 +54,8 @@ export default defineNuxtConfig({
     cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
     cloudinaryApiKey: process.env.CLOUDINARY_API_KEY || '',
     cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET || '',
-    adminEmail: process.env.ADMIN_EMAIL || 'admin@kayan-finishes.com',
-    adminPassword: process.env.ADMIN_PASSWORD || 'Kayan@2026',
+    adminEmail: process.env.ADMIN_EMAIL || 'Kayan@number1',
+    adminPassword: process.env.ADMIN_PASSWORD || 'Kayan@number1',
     public: {
       supabaseUrl: process.env.SUPABASE_URL || '',
     }
