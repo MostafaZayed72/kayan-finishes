@@ -132,11 +132,12 @@
 </template>
 
 <script setup lang="ts">
-import { packagesData, locationsData } from '~/data/finishing'
+import { locationsData } from '~/data/finishing'
 
 const { locale } = useI18n()
 const route = useRoute()
 const { openBooking } = useBookingModal()
+const { supervisionTiers: packagesData } = useKayanData()
 
 const unitType = ref<'apartment' | 'villa' | 'commercial'>('apartment')
 const area = ref(180)
@@ -149,7 +150,7 @@ const unitTypes = [
   { id: 'commercial' as const, multiplier: 1.05, label: { ar: 'إداري/تجاري', en: 'Commercial' } },
 ]
 
-const currentPkg = computed(() => packagesData.find((p) => p.id === selectedPkgId.value) || packagesData[1])
+const currentPkg = computed(() => packagesData.value.find((p) => p.id === selectedPkgId.value) || packagesData.value[1] || packagesData.value[0])
 
 const executionCost = computed(() => {
   const mult = unitTypes.find((u) => u.id === unitType.value)?.multiplier ?? 1

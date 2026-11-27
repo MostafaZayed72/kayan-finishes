@@ -47,5 +47,17 @@ export default defineNuxtConfig({
   tailwindcss: {
     exposeConfig: true,
     viewer: false,
+  },
+  runtimeConfig: {
+    supabaseUrl: process.env.SUPABASE_URL || '',
+    supabaseKey: process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY || '',
+    cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
+    cloudinaryApiKey: process.env.CLOUDINARY_API_KEY || '',
+    cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET || '',
+    adminEmail: process.env.ADMIN_EMAIL || 'admin@kayan-finishes.com',
+    adminPassword: process.env.ADMIN_PASSWORD || 'Kayan@2026',
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL || '',
+    }
   }
 })

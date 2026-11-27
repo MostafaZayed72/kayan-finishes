@@ -48,15 +48,15 @@
 
 <script setup lang="ts">
 import { useWindowScroll } from '@vueuse/core'
-import { blogPostsData } from '~/data/finishing'
 
 const route = useRoute()
 const { locale } = useI18n()
 const localePath = useLocalePath()
 const { openBooking } = useBookingModal()
 const { y } = useWindowScroll()
+const { blogPosts: blogPostsData } = useKayanData()
 
-const post = computed(() => blogPostsData.find((p) => p.slug === route.params.slug) || blogPostsData[0])
+const post = computed(() => blogPostsData.value.find((p) => p.slug === route.params.slug) || blogPostsData.value[0])
 
 const progress = computed(() => {
   if (!import.meta.client) return 0

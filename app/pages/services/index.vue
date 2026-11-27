@@ -40,8 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { servicesData } from '~/data/finishing'
-
 const { locale } = useI18n()
 const localePath = useLocalePath()
+const { services: servicesData } = useKayanData()
 </script>

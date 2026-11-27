@@ -50,16 +50,15 @@
 </template>
 
 <script setup lang="ts">
-import { blogPostsData } from '~/data/finishing'
-
 const { locale } = useI18n()
 const localePath = useLocalePath()
+const { blogPosts: blogPostsData } = useKayanData()
 const query = ref('')
 
 const filteredPosts = computed(() => {
   const q = query.value.trim().toLowerCase()
-  if (!q) return blogPostsData
-  return blogPostsData.filter(
+  if (!q) return blogPostsData.value
+  return blogPostsData.value.filter(
     (p) =>
       p.title[locale.value].toLowerCase().includes(q) ||
       p.excerpt[locale.value].toLowerCase().includes(q)

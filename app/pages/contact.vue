@@ -20,7 +20,7 @@
             <h2 class="text-xl font-black mb-6 text-slate-900 dark:text-white">
               {{ locale === 'ar' ? 'أرسل تفاصيل وحدتك' : 'Send Your Unit Details' }}
             </h2>
-            <form @submit.prevent="sent = true" class="space-y-4">
+            <form @submit.prevent="submitContact" class="space-y-4">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-bold mb-1.5">{{ locale === 'ar' ? 'الاسم' : 'Name' }}</label>
@@ -132,4 +132,23 @@ const form = reactive({
   area: '',
   message: '',
 })
+
+const submitContact = async () => {
+  try {
+    await $fetch('/api/leads', {
+      method: 'POST',
+      body: {
+        name: form.name,
+        phone: form.phone,
+        unit_type: form.type,
+        location: form.area,
+        notes: form.message,
+        source: 'contact_page',
+      },
+    })
+  } catch {
+    // Graceful fallback
+  }
+  sent.value = true
+}
 </script>

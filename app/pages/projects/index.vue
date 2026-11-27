@@ -100,10 +100,9 @@
 </template>
 
 <script setup lang="ts">
-import { projectsData } from '~/data/finishing'
-
 const { locale } = useI18n()
 const localePath = useLocalePath()
+const { projects: projectsData } = useKayanData()
 
 const selectedCategory = ref<'all' | 'apartment' | 'villa' | 'commercial'>('all')
 const searchQuery = ref('')
@@ -116,7 +115,7 @@ const categories = [
 ]
 
 const filteredProjects = computed(() => {
-  return projectsData.filter((p) => {
+  return projectsData.value.filter((p) => {
     const matchesCat = selectedCategory.value === 'all' || p.category === selectedCategory.value
     const q = searchQuery.value.trim().toLowerCase()
     const matchesQuery =

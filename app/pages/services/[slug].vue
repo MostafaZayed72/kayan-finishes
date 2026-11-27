@@ -49,12 +49,11 @@
 </template>
 
 <script setup lang="ts">
-import { servicesData } from '~/data/finishing'
-
 const route = useRoute()
 const { locale } = useI18n()
 const localePath = useLocalePath()
 const { openBooking } = useBookingModal()
+const { services: servicesData } = useKayanData()
 
-const service = computed(() => servicesData.find((s) => s.slug === route.params.slug) || servicesData[0])
+const service = computed(() => servicesData.value.find((s) => s.slug === route.params.slug) || servicesData.value[0])
 </script>

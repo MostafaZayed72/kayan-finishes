@@ -198,11 +198,10 @@
 </template>
 
 <script setup lang="ts">
-import { servicesData, projectsData, packagesData } from '~/data/finishing'
-
 const { locale } = useI18n()
 const localePath = useLocalePath()
 const { openBooking } = useBookingModal()
+const { services: servicesData, projects: projectsData, supervisionTiers: packagesData } = useKayanData()
 
-const featuredProject = computed(() => projectsData[0])
+const featuredProject = computed(() => projectsData.value[0])
 </script>

@@ -125,7 +125,21 @@ watch(prefilledNote, (val) => {
   if (val) form.notes = val
 })
 
-const submitForm = () => {
+const submitForm = async () => {
+  try {
+    await $fetch('/api/leads', {
+      method: 'POST',
+      body: {
+        name: form.name,
+        phone: form.phone,
+        location: form.location,
+        notes: form.notes,
+        source: 'booking_modal',
+      },
+    })
+  } catch {
+    // Still show confirmation in prototype mode
+  }
   submitted.value = true
 }
 

@@ -91,13 +91,12 @@
 </template>
 
 <script setup lang="ts">
-import { projectsData } from '~/data/finishing'
-
 const route = useRoute()
 const { locale } = useI18n()
 const localePath = useLocalePath()
+const { projects: projectsData } = useKayanData()
 
-const project = computed(() => projectsData.find((p) => p.slug === route.params.slug) || projectsData[0])
+const project = computed(() => projectsData.value.find((p) => p.slug === route.params.slug) || projectsData.value[0])
 const lightboxImg = ref<string | null>(null)
 const copied = ref(false)
 
