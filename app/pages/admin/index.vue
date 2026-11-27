@@ -97,41 +97,32 @@
         <button type="button" @click="toast = ''" class="text-xs opacity-70 hover:opacity-100">✕</button>
       </div>
 
-      <!-- KPI Summary -->
+      <!-- Clickable KPI Navigation Cards -->
       <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-        <div class="premium-card !p-4">
-          <div class="text-xs text-slate-500">{{ locale === 'ar' ? 'طلبات المعاينة' : 'Leads' }}</div>
-          <div class="text-2xl font-black text-brand-orange mt-1">{{ leads.length }}</div>
-        </div>
-        <div class="premium-card !p-4">
-          <div class="text-xs text-slate-500">{{ $t('nav.services') }}</div>
-          <div class="text-2xl font-black mt-1">{{ services.length }}</div>
-        </div>
-        <div class="premium-card !p-4">
-          <div class="text-xs text-slate-500">{{ $t('nav.projects') }}</div>
-          <div class="text-2xl font-black mt-1">{{ projects.length }}</div>
-        </div>
-        <div class="premium-card !p-4">
-          <div class="text-xs text-slate-500">{{ locale === 'ar' ? 'أنظمة الإشراف' : 'Supervision' }}</div>
-          <div class="text-2xl font-black mt-1">{{ supervisionTiers.length }}</div>
-        </div>
-        <div class="premium-card !p-4">
-          <div class="text-xs text-slate-500">{{ $t('nav.blog') }}</div>
-          <div class="text-2xl font-black mt-1">{{ blogPosts.length }}</div>
-        </div>
-      </div>
-
-      <!-- Tabs -->
-      <div class="flex flex-wrap gap-2 mb-6">
         <button
           v-for="tab in tabs"
           :key="tab.id"
           type="button"
           @click="activeTab = tab.id"
-          class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all"
-          :class="activeTab === tab.id ? 'bg-brand-orange text-white shadow-md shadow-orange-600/20' : 'bg-white dark:bg-brand-charcoal border border-slate-200 dark:border-white/10 hover:border-brand-orange'"
+          class="rounded-3xl p-5 text-start transition-all duration-300 border cursor-pointer"
+          :class="
+            activeTab === tab.id
+              ? 'bg-brand-orange text-white border-brand-orange shadow-xl shadow-orange-600/25 -translate-y-0.5'
+              : 'bg-white/85 dark:bg-brand-charcoal/80 border-slate-200/80 dark:border-white/10 hover:border-brand-orange/50 hover:-translate-y-0.5'
+          "
         >
-          {{ tab.label[locale] }}
+          <div
+            class="text-xs font-bold"
+            :class="activeTab === tab.id ? 'text-orange-100' : 'text-slate-500 dark:text-slate-400'"
+          >
+            {{ tab.label[locale] }}
+          </div>
+          <div
+            class="text-3xl font-black mt-1.5"
+            :class="activeTab === tab.id ? 'text-white' : 'text-brand-orange'"
+          >
+            {{ tabCount(tab.id) }}
+          </div>
         </button>
       </div>
 
@@ -401,6 +392,21 @@ const tabs = [
   { id: 'calculator' as const, label: { ar: 'الحاسبة ونسب الإشراف', en: 'Calculator & Tiers' } },
   { id: 'blog' as const, label: { ar: 'المدونة', en: 'Blog' } },
 ]
+
+const tabCount = (id: 'leads' | 'services' | 'projects' | 'calculator' | 'blog') => {
+  switch (id) {
+    case 'leads':
+      return leads.value.length
+    case 'services':
+      return services.value.length
+    case 'projects':
+      return projects.value.length
+    case 'calculator':
+      return supervisionTiers.value.length
+    case 'blog':
+      return blogPosts.value.length
+  }
+}
 
 const leads = ref<any[]>([])
 const toast = ref('')
